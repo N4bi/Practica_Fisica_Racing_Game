@@ -317,7 +317,6 @@ bool ModuleSceneIntro::Start()
 		//--------------------------------
 
 
-
 		//-- CYLINDER OBSTACLES
 	cylinder_obstacle[0].radius = 1.0f* MAP_SIZE;
 	cylinder_obstacle[0].height = 5.8f* MAP_SIZE;
@@ -362,7 +361,6 @@ bool ModuleSceneIntro::Start()
 	cube_obstacle_body[1] = App->physics->AddBody(cube_obstacle[1], 0);
 
 		//-------------------------------------------------	
-
 
 
 		//-- CHECKPOINTS
@@ -629,6 +627,8 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 	}
 
 }
+
+//-- RESET METHODS
 void ModuleSceneIntro::Reset()
 {
 	
@@ -650,7 +650,6 @@ void ModuleSceneIntro::Reset()
 	
 }
 
-//-- RESET METHODS
 void ModuleSceneIntro::ResetPendulum()
 {
 	pendulum_body[1]->SetLinearVelocity(300.0f, 0.0f, 0.0f);

@@ -5,8 +5,7 @@
 // ----------------------------------------------------------------------------
 VehicleInfo::~VehicleInfo()
 {
-	//if(wheels != NULL)
-	//delete wheels;
+
 }
 
 // ----------------------------------------------------------------------------
@@ -192,7 +191,6 @@ float PhysVehicle3D::GetKmh() const
 	return vehicle->getCurrentSpeedKmHour();
 }
 
-//esto es mío aunque se parece a lo del carlos ^^
 vec3 PhysVehicle3D::getForwardVector() const
 {
 	btVector3 vector = vehicle->getForwardVector();
@@ -203,9 +201,6 @@ vec3 PhysVehicle3D::getForwardVector() const
 
 void PhysVehicle3D::CarOrientation(float angle_r)
 {
-	// Angle_r equal to 0 is on positive z axis
-	// Incrementing angle_r goes to positive x axis. Counter-clockwise;
-
 	float matrix[16];
 	memset(matrix, 0.0f, sizeof(matrix));
 

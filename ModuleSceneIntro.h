@@ -5,7 +5,6 @@
 #include "Primitive.h"
 
 
-#define MAX_SNAKE 2
 #define MAP_SIZE 2
 
 struct PhysBody3D;
@@ -89,8 +88,5 @@ public:
 	int				 win = 0;
 	int				 lose = 0;
 	int				 respawn = 3;
-
-
-
 
 };
