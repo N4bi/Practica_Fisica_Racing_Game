@@ -36,6 +36,10 @@ public:
 	btCollisionShape* NewSphereshape(float radius);
 	PhysVehicle3D* AddVehicle(const VehicleInfo& info);
 
+	Cube		CreateCube(float size_x, float size_y, float size_z, float position_x, float position_y, float position_z, float rot_angle = 0.0f, vec3 rotation = (0.0f, 0.0f, 0.0f));
+	Cylinder	CreateCylinder(float radius, float position_x,float position_y,float position_z, float height = 0.0f, float rot_angle = 0.0f, vec3 rotation = (0.0f, 0.0f, 0.0f));
+	Sphere		CreateSphere(float radius, float position_x,float position_y,float position_z);
+
 	void AddConstraintP2P(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB);
 	void AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisS, const vec3& axisB, bool disable_collision = false);
 	

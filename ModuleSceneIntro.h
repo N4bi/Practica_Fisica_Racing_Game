@@ -33,20 +33,22 @@ public:
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 	void Reset();
 	void ResetPendulum();
+	
 
 public:
 
 	//--PLANE
-	Plane			p;
+	Plane			 p;
 
 	//--BALL
-	Sphere			ball;
+	Sphere			 ball;
 
 	//--ROAD
-	Cube			road[40];
+	Cube			 road[40];
+
 
 	//--GOAL
-	Cylinder		goal;
+	Cylinder		 goal;
 
 	//--OBSTACLES & CHECKPOINTS
 	Cube			 pendulum[6];
@@ -68,6 +70,7 @@ public:
 	PhysBody3D*		 ball_obstacle_body;
 	PhysBody3D*		 ball_body;
 	PhysBody3D*		 cube_wall_body;
+	PhysBody3D*		 road_test_body;
 
 	//--SFX
 	uint			 checkpoint_fx;

@@ -469,8 +469,8 @@ void ModulePhysics3D::AddConstraintP2P(PhysBody3D& bodyA, PhysBody3D& bodyB, con
 	btTypedConstraint* p2p = new btPoint2PointConstraint(
 		*(bodyA.body),
 		*(bodyB.body),
-		btVector3(anchorA.x, anchorA.y, anchorA.z),
-		btVector3(anchorB.x, anchorB.y, anchorB.z));
+		btVector3(anchorA.x*MAP_SIZE, anchorA.y*MAP_SIZE, anchorA.z*MAP_SIZE),
+		btVector3(anchorB.x*MAP_SIZE, anchorB.y*MAP_SIZE, anchorB.z*MAP_SIZE));
 	world->addConstraint(p2p);
 	constraints.add(p2p);
 	p2p->setDbgDrawSize(5.0f);
@@ -481,14 +481,47 @@ void ModulePhysics3D::AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, c
 	btHingeConstraint* hinge = new btHingeConstraint(
 		*(bodyA.body),
 		*(bodyB.body),
-		btVector3(anchorA.x, anchorA.y, anchorA.z),
-		btVector3(anchorB.x, anchorB.y, anchorB.z),
-		btVector3(axisA.x, axisA.y, axisA.z),
-		btVector3(axisB.x, axisB.y, axisB.z));
+		btVector3(anchorA.x*MAP_SIZE, anchorA.y*MAP_SIZE, anchorA.z*MAP_SIZE),
+		btVector3(anchorB.x*MAP_SIZE, anchorB.y*MAP_SIZE, anchorB.z*MAP_SIZE),
+		btVector3(axisA.x*MAP_SIZE, axisA.y*MAP_SIZE, axisA.z*MAP_SIZE),
+		btVector3(axisB.x*MAP_SIZE, axisB.y*MAP_SIZE, axisB.z*MAP_SIZE));
 
 	world->addConstraint(hinge, disable_collision);
 	constraints.add(hinge);
 	hinge->setDbgDrawSize(2.0f);
+}
+
+Cube ModulePhysics3D::CreateCube(float size_x, float size_y, float size_z, float position_x, float position_y, float position_z, float rot_angle, vec3 rotation)
+{
+	Cube cube(size_x * MAP_SIZE, size_y * MAP_SIZE, size_z * MAP_SIZE);
+
+	if (rot_angle != 0.0f)
+	{
+		cube.SetRotation(rot_angle, rotation);
+	}
+	cube.SetPos(position_x * MAP_SIZE, position_y * MAP_SIZE, position_z * MAP_SIZE);
+
+	return cube;
+}
+
+Cylinder ModulePhysics3D::CreateCylinder(float radius, float position_x,float position_y,float position_z, float height, float rot_angle, vec3 rotation)
+{
+	Cylinder cylinder(radius* MAP_SIZE, height* MAP_SIZE);
+	cylinder.SetPos(position_x* MAP_SIZE, position_y* MAP_SIZE, position_z* MAP_SIZE);
+	if (rot_angle != 0.0f)
+	{
+		cylinder.SetRotation(rot_angle, rotation);
+	}
+
+	return cylinder;
+}
+
+Sphere ModulePhysics3D::CreateSphere(float radius, float position_x, float position_y, float position_z)
+{
+	Sphere sphere(radius* MAP_SIZE);
+	sphere.SetPos(position_x* MAP_SIZE, position_y* MAP_SIZE, position_z* MAP_SIZE);
+
+	return sphere;
 }
 
 // =============================================
