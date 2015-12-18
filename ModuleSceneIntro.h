@@ -3,8 +3,6 @@
 #include "p2DynArray.h"
 #include "Globals.h"
 #include "Primitive.h"
-
-
 #define MAP_SIZE 2
 
 struct PhysBody3D;
@@ -56,7 +54,6 @@ public:
 	Cube			 cube_obstacle[2];
 	CHECKPOINT		 checkpoint[2];
 	Sphere			 ball_obstacle;
-	Cube			 cube_wall;
 
 	//------------------------------------------------
 
@@ -72,6 +69,8 @@ public:
 	PhysBody3D*		 cube_wall_body;
 	PhysBody3D*		 road_test_body;
 
+	//-----------------------------------------------
+
 	//--SFX
 	uint			 checkpoint_fx;
 	uint			 you_win_fx;
@@ -81,7 +80,6 @@ public:
 
 	//--TIMER
 	Timer			 timer;
-	Uint32			 timer_b;
 	Uint32			 minutes = 0;
 	Uint32			 last_timer_min = 0;
 	Uint32			 last_timer = 0;

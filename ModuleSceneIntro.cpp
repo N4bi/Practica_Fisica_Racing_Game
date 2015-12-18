@@ -314,7 +314,7 @@ update_status ModuleSceneIntro::Update(float dt)
 
 //--RENDER ALL
 
-	p.axis = true;
+	p.color.Set(0.0, 0.0, 0.0);
 	p.Render();
 
 	for (int i = 0; i < 40; ++i)
@@ -504,21 +504,18 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 
 	if (body1 == plane && body2 != ball_obstacle_body)
 	{
-		
+		if (isColliding != true)
+		{
+			isColliding = true;
+		}
 
 		if (body2 == ball_body)
 		{
 			ball_body->SetPos((-25.916f - 20.0f)* MAP_SIZE, 40.0f* MAP_SIZE, -20.321* MAP_SIZE);
 			ball_body->StopMotion();
 		}
-
-		if (isColliding != true)
-		{
-			isColliding = true;
-		}
-	
 	}
-	
+
 	if (body1 == plane && body2 == ball_obstacle_body)
 	{
 		ball_obstacle_body->SetPos((-17.5 + 20)* MAP_SIZE, (12.0f + 8.8f + 10.0f)* MAP_SIZE, 39.679* MAP_SIZE);
